@@ -15,9 +15,8 @@
     if (isset($iyem["nopersetujuan"])) {
         $nopersetujuan    = validTeks3($iyem["nopersetujuan"],20);
         $querypersetujuan = bukaquery(
-            "select surat_persetujuan_pemeriksaan_hiv.no_surat,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,pasien.tgl_lahir,surat_persetujuan_pemeriksaan_hiv.tanggal,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,".
-            "pasien.no_tlp,pasien.tmp_lahir,surat_persetujuan_pemeriksaan_hiv.nik,pegawai.nama,reg_periksa.umurdaftar,reg_periksa.sttsumur from surat_persetujuan_pemeriksaan_hiv inner join reg_periksa on surat_persetujuan_pemeriksaan_hiv.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis ".
-            "inner join pegawai on surat_persetujuan_pemeriksaan_hiv.nik=pegawai.nik inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab where surat_persetujuan_pemeriksaan_hiv.no_surat='".$nopersetujuan."'"
+            "select surat_persetujuan_pemeriksaan_hiv.tanggal,surat_persetujuan_pemeriksaan_hiv.nik,pegawai.nama from surat_persetujuan_pemeriksaan_hiv ".
+            "inner join pegawai on surat_persetujuan_pemeriksaan_hiv.nik=pegawai.nik where surat_persetujuan_pemeriksaan_hiv.no_surat='".$nopersetujuan."'"
         );
         if($rsquerypersetujuan= mysqli_fetch_array($querypersetujuan)){
             echo "<div class='row clearfix'>
@@ -40,31 +39,23 @@
                                     <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                         <tr>
                                             <td width='25%'>Nama Pasien</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["nm_pasien"]."</td>
+                                            <td width='75%'>: ".$_SESSION["nm_pasien"]."</td>
                                         </tr>
                                         <tr>
                                             <td width='25%'>Nomor Rekam Medis</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["no_rkm_medis"]."</td>
+                                            <td width='75%'>: ".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."</td>
                                         </tr>
                                         <tr>
                                             <td width='25%'>Jenis Kelamin</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["jk"]."</td>
+                                            <td width='75%'>: ".($_SESSION["jk"]=="L"?"Laki-laki":"Perempuan")."</td>
                                         </tr>
                                         <tr>
                                             <td width='25%'>Tanggal Lahir</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["tgl_lahir"]."</td>
-                                        </tr>
-                                        <tr>
-                                            <td width='25%'>Umur</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["umurdaftar"]." ".$rsquerypersetujuan["sttsumur"]."</td>
+                                            <td width='75%'>: ".$_SESSION["tgl_lahir"]."</td>
                                         </tr>
                                         <tr>
                                             <td width='25%'>No.Telp</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["no_tlp"]."</td>
-                                        </tr>
-                                        <tr>
-                                            <td width='25%'>Alamat</td>
-                                            <td width='75%'>: ".$rsquerypersetujuan["alamat"]."</td>
+                                            <td width='75%'>: ".$_SESSION["no_tlp"]."</td>
                                         </tr>
                                     </table>
                                     <br/>
@@ -108,8 +99,32 @@
 
                 if(file_put_contents($file, $image_base64)){
                     if(file_exists("../webapps/persetujuanpemeriksaanhiv/pages/upload/".$nopersetujuan.".jpeg")){
-                        if(Tambah3("surat_persetujuan_pemeriksaan_hiv_pembuat_persetujuan","'".$nopersetujuan."','pages/upload/$fileName'")){
-                            JSRedirect("index.php?act=PersetujuanPemeriksaanHIV&hal=Persetujuan");
+                        try{
+                            if(Tambah3("surat_persetujuan_pemeriksaan_hiv_pembuat_persetujuan","'".$nopersetujuan."','pages/upload/$fileName'")){
+                                JSRedirect("index.php?act=PersetujuanPemeriksaanHIV&hal=Persetujuan");
+                            }
+                        } catch(mysqli_sql_exception $e) {
+                            if($e->getCode()==1062){
+                                echo "<div class='row clearfix'>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                           <div class='card'>
+                                               <div class='body'>
+                                                   <center>Data bukti persetujuan sudah ada</center>
+                                               </div>
+                                           </div>
+                                        </div>
+                                      </div>";
+                            }else{
+                                echo "<div class='row clearfix'>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                           <div class='card'>
+                                               <div class='body'>
+                                                   <center>Gagal menyimpan</center>
+                                               </div>
+                                           </div>
+                                        </div>
+                                      </div>";
+                            }
                         }
                     }else{
                         echo "<div class='row clearfix'>

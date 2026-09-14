@@ -40,24 +40,24 @@
                                         </h7>
                                         <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                             <tr>
-                                                <td width='30%'>Nama</td>
+                                                <td width='25%'>Nama</td>
                                                 <td width='75%'>: ".$rsquerypernyataan["pembuat_pernyataan"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Alamat</td>
-                                                <td width='70%'>: ".$rsquerypernyataan["alamat_pembuat_pernyataan"]."</td>
+                                                <td width='25%'>Alamat</td>
+                                                <td width='75%'>: ".$rsquerypernyataan["alamat_pembuat_pernyataan"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Tanggal Lahir</td>
-                                                <td width='70%'>: ".$rsquerypernyataan["tgl_lahir_pembuat_pernyataan"]."</td>
+                                                <td width='25%'>Tanggal Lahir</td>
+                                                <td width='75%'>: ".$rsquerypernyataan["tgl_lahir_pembuat_pernyataan"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Jenis Kelamin</td>
-                                                <td width='70%'>: ".$rsquerypernyataan["jk_pembuat_pernyataan"]."</td>
+                                                <td width='25%'>Jenis Kelamin</td>
+                                                <td width='75%'>: ".$rsquerypernyataan["jk_pembuat_pernyataan"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Hubungan Dengan Pasien</td>
-                                                <td width='70%'>: ".$rsquerypernyataan["hubungan_pembuat_pernyataan"]."</td>
+                                                <td width='25%'>Hubungan Dengan Pasien</td>
+                                                <td width='75%'>: ".$rsquerypernyataan["hubungan_pembuat_pernyataan"]."</td>
                                             </tr>
                                         </table>
                                         <br/>
@@ -66,28 +66,28 @@
                                         </h7>
                                         <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                             <tr>
-                                                <td width='30%'>Nama Pasien</td>
-                                                <td width='70%'>: ".$_SESSION["nm_pasien"]."</td>
+                                                <td width='25%'>Nama Pasien</td>
+                                                <td width='75%'>: ".$_SESSION["nm_pasien"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Nomor Rekam Medis</td>
-                                                <td width='70%'>: ".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."</td>
+                                                <td width='25%'>Nomor Rekam Medis</td>
+                                                <td width='75%'>: ".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Jenis Kelamin</td>
-                                                <td width='70%'>: ".($_SESSION["jk"]=="L"?"Laki-laki":"Perempuan")."</td>
+                                                <td width='25%'>Jenis Kelamin</td>
+                                                <td width='75%'>: ".($_SESSION["jk"]=="L"?"Laki-laki":"Perempuan")."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Tempat Lahir</td>
-                                                <td width='70%'>: ".$_SESSION["tmp_lahir"]."</td>
+                                                <td width='25%'>Tempat Lahir</td>
+                                                <td width='75%'>: ".$_SESSION["tmp_lahir"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Tanggal Lahir</td>
-                                                <td width='70%'>: ".$_SESSION["tgl_lahir"]."</td>
+                                                <td width='25%'>Tanggal Lahir</td>
+                                                <td width='75%'>: ".$_SESSION["tgl_lahir"]."</td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Nomor Identitas</td>
-                                                <td width='70%'>: ".$_SESSION["no_ktp"]."</td>
+                                                <td width='25%'>Nomor Identitas</td>
+                                                <td width='75%'>: ".$_SESSION["no_ktp"]."</td>
                                             </tr>
                                         </table>
                                         <br/>
@@ -143,8 +143,32 @@
 
                     if(file_put_contents($file, $image_base64)){
                         if(file_exists("../webapps/pernyataanmemilihdpjp/pages/upload/".$nopernyataan."PP.jpeg")){
-                            if(Tambah3("bukti_surat_pernyataan_memilih_dpjp","'".$nopernyataan."','pages/upload/$fileName'")){
-                                JSRedirect("index.php?act=AmbilPernyataanMemilihDPJP&iyem=".encrypt_decrypt("{\"nopernyataan\":\"".$nopernyataan."\",\"photo\":\"pages/upload/$fileName\",\"photo2\":\"\"}","e")."");
+                            try{
+                                if(Tambah3("bukti_surat_pernyataan_memilih_dpjp","'".$nopernyataan."','pages/upload/$fileName'")){
+                                    JSRedirect("index.php?act=AmbilPernyataanMemilihDPJP&iyem=".encrypt_decrypt("{\"nopernyataan\":\"".$nopernyataan."\",\"photo\":\"pages/upload/$fileName\",\"photo2\":\"\"}","e")."");
+                                }
+                            } catch(mysqli_sql_exception $e) {
+                                if($e->getCode()==1062){
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Data bukti pelayanan sudah ada</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }else{
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Gagal menyimpan</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }
                             }
                         }else{
                             echo "<div class='row clearfix'>
@@ -236,8 +260,32 @@
 
                     if(file_put_contents($file, $image_base64)){
                         if(file_exists("../webapps/pernyataanmemilihdpjp/pages/upload/".$nopernyataan."SK.jpeg")){
-                            if(Tambah3("bukti_surat_pernyataan_memilih_dpjp_saksikeluarga","'".$nopernyataan."','pages/upload/$fileName'")){
-                                JSRedirect("index.php?act=PernyataanMemilihDPJP&hal=Persetujuan");
+                            try{
+                                if(Tambah3("bukti_surat_pernyataan_memilih_dpjp_saksikeluarga","'".$nopernyataan."','pages/upload/$fileName'")){
+                                    JSRedirect("index.php?act=PernyataanMemilihDPJP&hal=Persetujuan");
+                                }
+                            } catch(mysqli_sql_exception $e) {
+                                if($e->getCode()==1062){
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Data bukti pelayanan sudah ada</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }else{
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Gagal menyimpan</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }
                             }
                         }else{
                             echo "<div class='row clearfix'>

@@ -34,7 +34,7 @@
                                     <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                         <tr>
                                             <td width='25%'>Nama Pasien</td>
-                                            <td width='70%'>: ".$_SESSION["nm_pasien"]."</td>
+                                            <td width='75%'>: ".$_SESSION["nm_pasien"]."</td>
                                         </tr>
                                         <tr>
                                             <td width='25%'>Nomor Rekam Medis</td>
@@ -89,8 +89,32 @@
 
                 if(file_put_contents($file, $image_base64)){
                     if(file_exists("../webapps/layananprogramkfr/pages/upload/".str_replace("/","",$norawat).".jpeg")){
-                        if(Tambah3("bukti_layanan_program_kfr","'".$norawat."','pages/upload/$fileName'")){
-                            JSRedirect("index.php?act=BuktiPelayananProgramKFR&hal=Persetujuan");
+                        try {
+                            if(Tambah3("bukti_layanan_program_kfr","'".$norawat."','pages/upload/$fileName'")){
+                                JSRedirect("index.php?act=BuktiPelayananProgramKFR&hal=Persetujuan");
+                            }
+                        } catch(mysqli_sql_exception $e) {
+                            if($e->getCode()==1062){
+                                echo "<div class='row clearfix'>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                           <div class='card'>
+                                               <div class='body'>
+                                                   <center>Data bukti pelayanan sudah ada</center>
+                                               </div>
+                                           </div>
+                                        </div>
+                                      </div>";
+                            }else{
+                                echo "<div class='row clearfix'>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                           <div class='card'>
+                                               <div class='body'>
+                                                   <center>Gagal menyimpan</center>
+                                               </div>
+                                           </div>
+                                        </div>
+                                      </div>";
+                            }
                         }
                     }
                 }else{

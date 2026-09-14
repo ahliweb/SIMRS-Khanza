@@ -261,7 +261,11 @@ public final class akses {
             daftar_permintaan_resep_iterasi_bpjs=false,pcra_icra_pengkajian_risiko_prakonstruksi=false,pcra_icra_persyaratan_harus_dipenuhi=false,satu_sehat_kirim_questionresponse_telaah_farmasi=false,
             satu_sehat_kirim_allergy_intolerance=false,konsultasi_perawat=false,jawaban_konsultasi_perawat=false,bridging_smart_klaim_bpjs=false,mapping_prosedur_smart_klaim_bpjs=false,
             mapping_penyakit_smart_klaim_bpjs=false,permintaan_binrohtal=false,surat_permintaan_perlindungan_dari_kekerasan=false,surat_permohonan_privasi=false,surat_permintaan_second_opinion=false,
-            surat_keterangan_berobat=false,surat_penolakan_resusitasi=false;
+            surat_keterangan_berobat=false,surat_penolakan_resusitasi=false,catatan_observasi_ruang_ok=false,hasil_pemeriksaan_usg_abdomen=false,intervensi_nyeri_farmakologi=false,
+            intervensi_nyeri_nonfarmakologi=false,surat_pengajuan_cuti_pasien=false,checklist_kriteria_masuk_isolasi=false,satu_sehat_mapping_kptl_tindakan_ralan=false,
+            satu_sehat_mapping_kptl_tindakan_ranap=false,satu_sehat_mapping_kptl_tindakan_radiologi=false,satu_sehat_mapping_kptl_tindakan_laborat=false,satu_sehat_mapping_kptl_tindakan_operasi=false,
+            satu_sehat_mapping_kptl_tarif_kamar=false,checklist_kriteria_keluar_isolasi=false,satu_sehat_tanda_tangan_elektronik=false,satu_sehat_kirim_composition=false,
+            ringkasan_hutang_vendor_inventaris=false,ringkasan_beban_hutang_lain=false,set_resep_per_cara_bayar=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1484,6 +1488,24 @@ public final class akses {
                         akses.surat_permintaan_second_opinion=true;
                         akses.surat_keterangan_berobat=true;
                         akses.surat_penolakan_resusitasi=true;
+                        akses.catatan_observasi_ruang_ok=true;
+                        akses.hasil_pemeriksaan_usg_abdomen=true;
+                        akses.intervensi_nyeri_farmakologi=true;
+                        akses.intervensi_nyeri_nonfarmakologi=true;
+                        akses.surat_pengajuan_cuti_pasien=true;
+                        akses.checklist_kriteria_masuk_isolasi=true;
+                        akses.satu_sehat_mapping_kptl_tindakan_ralan=true;
+                        akses.satu_sehat_mapping_kptl_tindakan_ranap=true;
+                        akses.satu_sehat_mapping_kptl_tindakan_radiologi=true;
+                        akses.satu_sehat_mapping_kptl_tindakan_laborat=true;
+                        akses.satu_sehat_mapping_kptl_tindakan_operasi=true;
+                        akses.satu_sehat_mapping_kptl_tarif_kamar=true;
+                        akses.checklist_kriteria_keluar_isolasi=true;
+                        akses.satu_sehat_tanda_tangan_elektronik=true;
+                        akses.satu_sehat_kirim_composition=true;
+                        akses.ringkasan_hutang_vendor_inventaris=true;
+                        akses.ringkasan_beban_hutang_lain=true;
+                        akses.set_resep_per_cara_bayar=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2690,6 +2712,24 @@ public final class akses {
                         akses.surat_permintaan_second_opinion=rs2.getBoolean("surat_permintaan_second_opinion");
                         akses.surat_keterangan_berobat=rs2.getBoolean("surat_keterangan_berobat");
                         akses.surat_penolakan_resusitasi=rs2.getBoolean("surat_penolakan_resusitasi");
+                        akses.catatan_observasi_ruang_ok=rs2.getBoolean("catatan_observasi_ruang_ok");
+                        akses.hasil_pemeriksaan_usg_abdomen=rs2.getBoolean("hasil_pemeriksaan_usg_abdomen");
+                        akses.intervensi_nyeri_farmakologi=rs2.getBoolean("intervensi_nyeri_farmakologi");
+                        akses.intervensi_nyeri_nonfarmakologi=rs2.getBoolean("intervensi_nyeri_nonfarmakologi");
+                        akses.surat_pengajuan_cuti_pasien=rs2.getBoolean("surat_pengajuan_cuti_pasien");
+                        akses.checklist_kriteria_masuk_isolasi=rs2.getBoolean("checklist_kriteria_masuk_isolasi");
+                        akses.satu_sehat_mapping_kptl_tindakan_ralan=rs2.getBoolean("satu_sehat_mapping_kptl_tindakan_ralan");
+                        akses.satu_sehat_mapping_kptl_tindakan_ranap=rs2.getBoolean("satu_sehat_mapping_kptl_tindakan_ranap");
+                        akses.satu_sehat_mapping_kptl_tindakan_radiologi=rs2.getBoolean("satu_sehat_mapping_kptl_tindakan_radiologi");
+                        akses.satu_sehat_mapping_kptl_tindakan_laborat=rs2.getBoolean("satu_sehat_mapping_kptl_tindakan_laborat");
+                        akses.satu_sehat_mapping_kptl_tindakan_operasi=rs2.getBoolean("satu_sehat_mapping_kptl_tindakan_operasi");
+                        akses.satu_sehat_mapping_kptl_tarif_kamar=rs2.getBoolean("satu_sehat_mapping_kptl_tarif_kamar");
+                        akses.checklist_kriteria_keluar_isolasi=rs2.getBoolean("checklist_kriteria_keluar_isolasi");
+                        akses.satu_sehat_tanda_tangan_elektronik=rs2.getBoolean("satu_sehat_tanda_tangan_elektronik");
+                        akses.satu_sehat_kirim_composition=rs2.getBoolean("satu_sehat_kirim_composition");
+                        akses.ringkasan_hutang_vendor_inventaris=rs2.getBoolean("ringkasan_hutang_vendor_inventaris");
+                        akses.ringkasan_beban_hutang_lain=rs2.getBoolean("ringkasan_beban_hutang_lain");
+                        akses.set_resep_per_cara_bayar=rs2.getBoolean("set_resep_per_cara_bayar");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         setLogOut();
                     }
@@ -3918,6 +3958,24 @@ public final class akses {
         akses.surat_permintaan_second_opinion=false;
         akses.surat_keterangan_berobat=false;
         akses.surat_penolakan_resusitasi=false;
+        akses.catatan_observasi_ruang_ok=false;
+        akses.hasil_pemeriksaan_usg_abdomen=false;
+        akses.intervensi_nyeri_farmakologi=false;
+        akses.intervensi_nyeri_nonfarmakologi=false;
+        akses.surat_pengajuan_cuti_pasien=false;
+        akses.checklist_kriteria_masuk_isolasi=false;
+        akses.satu_sehat_mapping_kptl_tindakan_ralan=false;
+        akses.satu_sehat_mapping_kptl_tindakan_ranap=false;
+        akses.satu_sehat_mapping_kptl_tindakan_radiologi=false;
+        akses.satu_sehat_mapping_kptl_tindakan_laborat=false;
+        akses.satu_sehat_mapping_kptl_tindakan_operasi=false;
+        akses.satu_sehat_mapping_kptl_tarif_kamar=false;
+        akses.checklist_kriteria_keluar_isolasi=false;
+        akses.satu_sehat_tanda_tangan_elektronik=false;
+        akses.satu_sehat_kirim_composition=false;
+        akses.ringkasan_hutang_vendor_inventaris=false;
+        akses.ringkasan_beban_hutang_lain=false;
+        akses.set_resep_per_cara_bayar=false;
     }
     
     public static int getjml1() {return akses.jml1;}    
@@ -5163,4 +5221,22 @@ public final class akses {
     public static boolean getsurat_permintaan_second_opinion(){return akses.surat_permintaan_second_opinion;}
     public static boolean getsurat_keterangan_berobat(){return akses.surat_keterangan_berobat;}
     public static boolean getsurat_penolakan_resusitasi(){return akses.surat_penolakan_resusitasi;}
+    public static boolean getcatatan_observasi_ruang_ok(){return akses.catatan_observasi_ruang_ok;}
+    public static boolean gethasil_pemeriksaan_usg_abdomen(){return akses.hasil_pemeriksaan_usg_abdomen;}
+    public static boolean getintervensi_nyeri_farmakologi(){return akses.intervensi_nyeri_farmakologi;}
+    public static boolean getintervensi_nyeri_nonfarmakologi(){return akses.intervensi_nyeri_nonfarmakologi;}
+    public static boolean getsurat_pengajuan_cuti_pasien(){return akses.surat_pengajuan_cuti_pasien;}
+    public static boolean getchecklist_kriteria_masuk_isolasi(){return akses.checklist_kriteria_masuk_isolasi;}
+    public static boolean getsatu_sehat_mapping_kptl_tindakan_ralan(){return akses.satu_sehat_mapping_kptl_tindakan_ralan;}
+    public static boolean getsatu_sehat_mapping_kptl_tindakan_ranap(){return akses.satu_sehat_mapping_kptl_tindakan_ranap;}
+    public static boolean getsatu_sehat_mapping_kptl_tindakan_radiologi(){return akses.satu_sehat_mapping_kptl_tindakan_radiologi;}
+    public static boolean getsatu_sehat_mapping_kptl_tindakan_laborat(){return akses.satu_sehat_mapping_kptl_tindakan_laborat;}
+    public static boolean getsatu_sehat_mapping_kptl_tindakan_operasi(){return akses.satu_sehat_mapping_kptl_tindakan_operasi;}
+    public static boolean getsatu_sehat_mapping_kptl_tarif_kamar(){return akses.satu_sehat_mapping_kptl_tarif_kamar;}
+    public static boolean getchecklist_kriteria_keluar_isolasi(){return akses.checklist_kriteria_keluar_isolasi;}
+    public static boolean getsatu_sehat_tanda_tangan_elektronik(){return akses.satu_sehat_tanda_tangan_elektronik;}
+    public static boolean getsatu_sehat_kirim_composition(){return akses.satu_sehat_kirim_composition;}
+    public static boolean getringkasan_hutang_vendor_inventaris(){return akses.ringkasan_hutang_vendor_inventaris;}
+    public static boolean getringkasan_beban_hutang_lain(){return akses.ringkasan_beban_hutang_lain;}
+    public static boolean getset_resep_per_cara_bayar(){return akses.set_resep_per_cara_bayar;}
 }   

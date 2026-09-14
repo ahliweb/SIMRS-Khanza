@@ -47,7 +47,7 @@
                                         </h7>
                                         <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                             <tr>
-                                                <td width='30%'>Nama</td>
+                                                <td width='25%'>Nama</td>
                                                 <td width='75%'>: ".$rsquerypersetujuan["penerima_informasi"]."</td>
                                             </tr>
                                             <tr>
@@ -69,57 +69,57 @@
                                         </h7>
                                         <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                             <tr>
-                                                <td width='30%'>Tindakan Kedokteran</td>
+                                                <td width='25%'>Tindakan Kedokteran</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["tindakan"]."</td>
                                                 <td width='10%'><input type='checkbox' name='tindakan_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Diagnosa</td>
+                                                <td width='25%'>Diagnosa</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["diagnosa"]."</td>
                                                 <td width='10%'><input type='checkbox' name='diagnosa_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Indikasi Tindakan</td>
+                                                <td width='25%'>Indikasi Tindakan</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["indikasi_tindakan"]."</td>
                                                 <td width='10%'><input type='checkbox' name='indikasi_tindakan_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Tata Cara</td>
+                                                <td width='25%'>Tata Cara</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["tata_cara"]."</td>
                                                 <td width='10%'><input type='checkbox' name='tata_cara_konfirmasi'></td>
                                             </tr> 
                                             <tr>
-                                                <td width='30%'>Tujuan</td>
+                                                <td width='25%'>Tujuan</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["tujuan"]."</td>
                                                 <td width='10%'><input type='checkbox' name='tujuan_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Risiko</td>
+                                                <td width='25%'>Risiko</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["risiko"]."</td>
                                                 <td width='10%'><input type='checkbox' name='risiko_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Komplikasi</td>
+                                                <td width='25%'>Komplikasi</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["komplikasi"]."</td>
                                                 <td width='10%'><input type='checkbox' name='komplikasi_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Prognosis</td>
+                                                <td width='25%'>Prognosis</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["prognosis"]."</td>
                                                 <td width='10%'><input type='checkbox' name='prognosis_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Alternatif & Resikonya</td>
+                                                <td width='25%'>Alternatif & Resikonya</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["alternatif_dan_risikonya"]."</td>
                                                 <td width='10%'><input type='checkbox' name='alternatif_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Lain-lain</td>
+                                                <td width='25%'>Lain-lain</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["lain_lain"]."</td>
                                                 <td width='10%'><input type='checkbox' name='lain_lain_konfirmasi'></td>
                                             </tr>
                                             <tr>
-                                                <td width='30%'>Biaya</td>
+                                                <td width='25%'>Biaya</td>
                                                 <td width='60%'>: ".$rsquerypersetujuan["biaya"]."</td>
                                                 <td width='10%'><input type='checkbox' name='biaya_konfirmasi'></td>
                                             </tr>
@@ -130,8 +130,8 @@
                                         </h7>
                                         <table width='100%' align='center' class='table table-hover js-basic-example dataTable'>
                                             <tr>
-                                                <td width='30%'>Nama Pasien</td>
-                                                <td width='70%'>: ".$_SESSION["nm_pasien"]."</td>
+                                                <td width='25%'>Nama Pasien</td>
+                                                <td width='75%'>: ".$_SESSION["nm_pasien"]."</td>
                                             </tr>
                                             <tr>
                                                 <td width='25%'>Nomor Rekam Medis</td>
@@ -231,14 +231,38 @@
 
                     if(file_put_contents($file, $image_base64)){
                         if(file_exists("../webapps/persetujuantindakan/pages/upload/".$nopersetujuan."PP.jpeg")){
-                            if(Tambah3("bukti_persetujuan_penolakan_tindakan_penerimainformasi","'".$nopersetujuan."','pages/upload/$fileName'")){
-                                Ubah2(
-                                    "persetujuan_penolakan_tindakan","diagnosa_konfirmasi='$diagnosa_konfirmasi',tindakan_konfirmasi='$tindakan_konfirmasi',indikasi_tindakan_konfirmasi='$indikasi_tindakan_konfirmasi',".
-                                    "tata_cara_konfirmasi='$tata_cara_konfirmasi',tujuan_konfirmasi='$tujuan_konfirmasi',risiko_konfirmasi='$risiko_konfirmasi',komplikasi_konfirmasi='$komplikasi_konfirmasi',".
-                                    "prognosis_konfirmasi='$prognosis_konfirmasi',alternatif_konfirmasi='$alternatif_konfirmasi',biaya_konfirmasi='$biaya_konfirmasi',lain_lain_konfirmasi='$lain_lain_konfirmasi',".
-                                    "pernyataan='$pilihansetuju' where no_pernyataan='$nopersetujuan'"
-                                );
-                                JSRedirect("index.php?act=AmbilPersetujuanPenolakanTindakan&iyem=".encrypt_decrypt("{\"nopersetujuan\":\"".$nopersetujuan."\",\"photo\":\"pages/upload/$fileName\",\"photo2\":\"\"}","e")."");
+                            try{
+                                if(Tambah3("bukti_persetujuan_penolakan_tindakan_penerimainformasi","'".$nopersetujuan."','pages/upload/$fileName'")){
+                                    Ubah2(
+                                        "persetujuan_penolakan_tindakan","diagnosa_konfirmasi='$diagnosa_konfirmasi',tindakan_konfirmasi='$tindakan_konfirmasi',indikasi_tindakan_konfirmasi='$indikasi_tindakan_konfirmasi',".
+                                        "tata_cara_konfirmasi='$tata_cara_konfirmasi',tujuan_konfirmasi='$tujuan_konfirmasi',risiko_konfirmasi='$risiko_konfirmasi',komplikasi_konfirmasi='$komplikasi_konfirmasi',".
+                                        "prognosis_konfirmasi='$prognosis_konfirmasi',alternatif_konfirmasi='$alternatif_konfirmasi',biaya_konfirmasi='$biaya_konfirmasi',lain_lain_konfirmasi='$lain_lain_konfirmasi',".
+                                        "pernyataan='$pilihansetuju' where no_pernyataan='$nopersetujuan'"
+                                    );
+                                    JSRedirect("index.php?act=AmbilPersetujuanPenolakanTindakan&iyem=".encrypt_decrypt("{\"nopersetujuan\":\"".$nopersetujuan."\",\"photo\":\"pages/upload/$fileName\",\"photo2\":\"\"}","e")."");
+                                }
+                            } catch(mysqli_sql_exception $e) {
+                                if($e->getCode()==1062){
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Data bukti pelayanan sudah ada</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }else{
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Gagal menyimpan</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }
                             }
                         }else{
                             echo "<div class='row clearfix'>
@@ -330,8 +354,32 @@
 
                     if(file_put_contents($file, $image_base64)){
                         if(file_exists("../webapps/persetujuantindakan/pages/upload/".$nopersetujuan."SK.jpeg")){
-                            if(Tambah3("bukti_persetujuan_penolakan_tindakan_saksikeluarga","'".$nopersetujuan."','pages/upload/$fileName'")){
-                                JSRedirect("index.php?act=PersetujuanPenolakanTindakan&hal=Persetujuan");
+                            try{
+                                if(Tambah3("bukti_persetujuan_penolakan_tindakan_saksikeluarga","'".$nopersetujuan."','pages/upload/$fileName'")){
+                                    JSRedirect("index.php?act=PersetujuanPenolakanTindakan&hal=Persetujuan");
+                                }
+                            } catch(mysqli_sql_exception $e) {
+                                if($e->getCode()==1062){
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Data bukti pelayanan sudah ada</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }else{
+                                    echo "<div class='row clearfix'>
+                                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                               <div class='card'>
+                                                   <div class='body'>
+                                                       <center>Gagal menyimpan</center>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                          </div>";
+                                }
                             }
                         }else{
                             echo "<div class='row clearfix'>

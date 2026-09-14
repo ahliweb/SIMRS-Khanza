@@ -21,7 +21,7 @@
                         $_SESSION["photo"]  = "images/userperempuan.png";
                     }
                 }else{
-                    $_SESSION["photo"]      = "http://".host()."/webapps/photopasien/".$rsqueryuser["gambar"];
+                    $_SESSION["photo"]      = "http://".$_SERVER['HTTP_HOST']."/webapps/photopasien/".$rsqueryuser["gambar"];
                 }
             }
         }
@@ -345,6 +345,9 @@
                             <li <?=$subhalaman=="AntrianUSGGynecologi"?"class='active'":""?>>
                                 <a href="index.php?act=AntrianUSGGynecologi&hal=AntrianTindakan">USG Gynecologi</a>
                             </li>
+                            <li <?=$subhalaman=="AntrianUSGAbdomen"?"class='active'":""?>>
+                                <a href="index.php?act=AntrianUSGAbdomen&hal=AntrianTindakan">USG Abdomen</a>
+                            </li>
                             <li <?=$subhalaman=="AntrianUSGNeonatus"?"class='active'":""?>>
                                 <a href="index.php?act=AntrianUSGNeonatus&hal=AntrianTindakan">USG Neonatus</a>
                             </li>
@@ -451,6 +454,27 @@
                             <li <?=$subhalaman=="PernyataanMemilihDPJP"?"class='active'":""?>>
                                 <a href="index.php?act=PernyataanMemilihDPJP&hal=Persetujuan">Pernyataan Memilih DPJP</a>
                             </li>
+                            <li <?=$subhalaman=="PernyataanMenerimaBarang"?"class='active'":""?>>
+                                <a href="index.php?act=PernyataanMenerimaBarang&hal=Persetujuan">Serah Terima Anggota Tubuh/Barang</a>
+                            </li>
+                            <li <?=$subhalaman=="PersetujuanBimbinganRohani"?"class='active'":""?>>
+                                <a href="index.php?act=PersetujuanBimbinganRohani&hal=Persetujuan">Bimbingan Rohani & Mental</a>
+                            </li>
+                            <li <?=$subhalaman=="PermintaanPerlindunganKekerasan"?"class='active'":""?>>
+                                <a href="index.php?act=PermintaanPerlindunganKekerasan&hal=Persetujuan">Perlindungan Dari Kekerasan</a>
+                            </li>
+                            <li <?=$subhalaman=="PermohonanPrivasiPasien"?"class='active'":""?>>
+                                <a href="index.php?act=PermohonanPrivasiPasien&hal=Persetujuan">Permohonan Privasi Pasien</a>
+                            </li>
+                            <li <?=$subhalaman=="PermintaanSecondOpinion"?"class='active'":""?>>
+                                <a href="index.php?act=PermintaanSecondOpinion&hal=Persetujuan">Permintaan Second Opinion</a>
+                            </li>
+                            <li <?=$subhalaman=="PenolakanResusitasi"?"class='active'":""?>>
+                                <a href="index.php?act=PenolakanResusitasi&hal=Persetujuan">Penolakan Resusitasi</a>
+                            </li>
+                            <li <?=$subhalaman=="PengajuanCutiPerawatan"?"class='active'":""?>>
+                                <a href="index.php?act=PengajuanCutiPerawatan&hal=Persetujuan">Pengajuan Cuti Perawatan</a>
+                            </li>
                         </ul>
                     </li>
                     <li <?=$halaman=="Fasilitas"?"class='active'":""?>>
@@ -504,6 +528,12 @@
                         <a href="index.php?act=KartuPasien&hal=KartuPasien">
                             <i class="material-icons">card_membership</i>
                             <span>Kartu Pasien</span>
+                        </a>
+                    </li>
+                    <li <?=$halaman=="KoneksiWearable"?"class='active'":""?>>
+                        <a href="index.php?act=KoneksiWearable&hal=KoneksiWearable">
+                            <i class="material-icons">watch</i>
+                            <span>Koneksi Wearable</span>
                         </a>
                     </li>
                 </ul>

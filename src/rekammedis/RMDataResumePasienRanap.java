@@ -2339,7 +2339,6 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
                 public void windowDeactivated(WindowEvent e) {}
             });
             carikeluhan.setNoRawat(TNoRw.getText());
-            carikeluhan.tampil();
             carikeluhan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             carikeluhan.setLocationRelativeTo(internalFrame1);
             carikeluhan.setVisible(true);
@@ -2522,7 +2521,6 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
                 public void windowDeactivated(WindowEvent e) {}
             });
             caripemeriksaan.setNoRawat(TNoRw.getText());
-            caripemeriksaan.tampil();
             caripemeriksaan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             caripemeriksaan.setLocationRelativeTo(internalFrame1);
             caripemeriksaan.setVisible(true);
@@ -2772,6 +2770,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
     private void BtnDokter6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokter6ActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         RMRiwayatPerawatan resume=new RMRiwayatPerawatan(null,true);
+        resume.setNoRawat(TNoRw.getText());
         resume.setNoRm(TNoRM.getText(),TPasien.getText());
         resume.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
         resume.setLocationRelativeTo(internalFrame1);
@@ -3490,7 +3489,8 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
         DTPCari2.setDate(tgl2);    
-        isRawat();              
+        isRawat();    
+        Alasan.setText(Sequel.cariIsi("select permintaan_ranap.alasan from permintaan_ranap where permintaan_ranap.no_rawat=?",norwt));
         ChkInput.setSelected(true);
         isForm();
         CaraKeluar.requestFocus();

@@ -265,7 +265,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value="20-05-2026 11:41:18"/>
+            <StringItem index="0" value="12-09-2026 09:48:08"/>
           </StringArray>
         </Property>
         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -935,7 +935,7 @@
                             </Property>
                             <Property name="name" type="java.lang.String" value="FormMenu" noResource="true"/>
                             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[255, 4605]"/>
+                              <Dimension value="[255, 4750]"/>
                             </Property>
                           </Properties>
 
@@ -1823,6 +1823,30 @@
                                 </Property>
                               </Properties>
                             </Component>
+                            <Component class="widget.CekBox" name="chkIntervensiNyeriFarmakologi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Intervensi Nyeri Farmakologi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkIntervensiNyeriFarmakologi" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkIntervensiNyeriNonFarmakologi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Intervensi Nyeri Non Farmakologi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkIntervensiNyeriNonFarmakologi" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
                             <Component class="widget.CekBox" name="chkCatatanKeperawatanRalan">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
@@ -2087,6 +2111,18 @@
                                 </Property>
                               </Properties>
                             </Component>
+                            <Component class="widget.CekBox" name="chkCatatanObservasiRuangOperasi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Catatan Observasi Ruang Operasi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkCatatanObservasiRuangOperasi" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
                             <Component class="widget.CekBox" name="chkChecklistKriteriaMasukHCU">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
@@ -2177,6 +2213,30 @@
                                 <Property name="text" type="java.lang.String" value="Check List Kriteria Keluar PICU"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="name" type="java.lang.String" value="chkChecklistKriteriaKeluarPICU" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkChecklistKriteriaMasukIsolasi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Check List Kriteria Masuk Isolasi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkChecklistKriteriaMasukIsolasi" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkChecklistKriteriaKeluarIsolasi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Check List Kriteria Keluar Isolasi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkChecklistKriteriaKeluarIsolasi" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
@@ -2333,6 +2393,18 @@
                                 <Property name="text" type="java.lang.String" value="Hasil USG Gynecologi"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="name" type="java.lang.String" value="chkHasilPemeriksaanUSGGynecologi" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkHasilPemeriksaanUSGAbdomen">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Hasil USG Abdomen"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkHasilPemeriksaanUSGAbdomen" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
@@ -3435,6 +3507,34 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="LoadHTMLRetensi" noResource="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="widget.ScrollPane" name="Scroll6">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Scroll6" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Wearable">
+                    <Property name="tabTitle" type="java.lang.String" value="Wearable"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="widget.editorpane" name="LoadHTMLWearable">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="LoadHTMLWearable" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
